@@ -1,0 +1,232 @@
+{
+  "name": "salestax",
+  "namespace": "salestax",
+  "id": "48cd800f-73a1-4561-9b67-a2a339991911",
+  "containerDefinitions": [
+    {
+      "type": "aws-sg",
+      "specific": {
+        "GroupName": "awsSg",
+        "Description": "Web security group",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 1130,
+            "ToPort": 1130,
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 6379,
+            "ToPort": 6379,
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 9200,
+            "ToPort": 9200,
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 9300,
+            "ToPort": 9300,
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8000,
+            "ToPort": 8000,
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          }
+        ],
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          }
+        ],
+        "VpcId": "vpc-bfbf79da",
+        "Tags": []
+      },
+      "id": "awsSg",
+      "name": "awsSg"
+    },
+    {
+      "type": "aws-ami",
+      "name": "awsMachine",
+      "specific": {
+        "ImageId": "ami-4b90b27b"
+      },
+      "id": "awsMachine"
+    },
+    {
+      "specific": {
+        "repositoryUrl": "git@github.com:senecajs/salestax-api.git#v2",
+        "type": "docker",
+        "execute": {
+          "args": "-p 51000:51000",
+          "exec": "node /app.js"
+        },
+        "commit": "f7423c87efb343b0ca37edd64711328592d45f36"
+      },
+      "type": "docker",
+      "id": "web$f7423c87efb343b0ca37edd64711328592d45f36",
+      "name": "web"
+    }
+  ],
+  "topology": {
+    "containers": {
+      "awsSg-e027fc86": {
+        "id": "awsSg-e027fc86",
+        "containedBy": "awsSg-e027fc86",
+        "containerDefinitionId": "awsSg",
+        "type": "aws-sg",
+        "contains": [
+          "awsMachine-a8be3fa5"
+        ],
+        "specific": {
+          "GroupName": "awsSg",
+          "Description": "Web security group",
+          "IpPermissions": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 22,
+              "ToPort": 22,
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 1130,
+              "ToPort": 1130,
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 6379,
+              "ToPort": 6379,
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 9200,
+              "ToPort": 9200,
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 9300,
+              "ToPort": 9300,
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 8000,
+              "ToPort": 8000,
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            }
+          ],
+          "IpPermissionsEgress": [
+            {
+              "IpProtocol": "-1",
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            }
+          ],
+          "VpcId": "vpc-bfbf79da",
+          "Tags": []
+        }
+      },
+      "awsMachine-a8be3fa5": {
+        "id": "awsMachine-a8be3fa5",
+        "containedBy": "awsSg-e027fc86",
+        "containerDefinitionId": "awsMachine",
+        "type": "aws-ami",
+        "contains": [
+          "web-a6bdf73a$f7423c87efb343b0ca37edd64711328592d45f36"
+        ],
+        "specific": {
+          "ImageId": "ami-4b90b27b"
+        }
+      },
+      "web-a6bdf73a$f7423c87efb343b0ca37edd64711328592d45f36": {
+        "id": "web-a6bdf73a$f7423c87efb343b0ca37edd64711328592d45f36",
+        "containedBy": "awsMachine-a8be3fa5",
+        "containerDefinitionId": "web$f7423c87efb343b0ca37edd64711328592d45f36",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:senecajs/salestax-api.git#v2",
+          "type": "docker",
+          "execute": {
+            "args": "-p 51000:51000",
+            "exec": "node /app.js"
+          },
+          "commit": "f7423c87efb343b0ca37edd64711328592d45f36"
+        }
+      }
+    },
+    "name": "aws"
+  }
+}
