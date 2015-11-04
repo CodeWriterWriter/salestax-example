@@ -5,10 +5,6 @@
 
 [![Gitter][gitter-badge]][gitter-url]
 
-[![js-standard-style][standard-badge]][standard-style]
-
-salestax-ie
-
 If you're using this module, and need help, you can:
 
 - Post a [github issue][],
@@ -27,8 +23,6 @@ Copyright Richard Rodger and other contributors 2015, Licensed under [MIT][].
 
 [gitter-badge]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-url]: https://gitter.im/senecajs/seneca
-[standard-badge]: https://raw.githubusercontent.com/feross/standard/master/badge.png
-[standard-style]: https://github.com/feross/standard
 
 [MIT]: ./LICENSE
 [Senecajs org]: https://github.com/senecajs/
