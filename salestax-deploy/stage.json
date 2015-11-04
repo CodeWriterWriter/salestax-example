@@ -1,0 +1,57 @@
+{
+  "name": "salestax",
+  "namespace": "salestax",
+  "id": "48cd800f-73a1-4561-9b67-a2a339991911",
+  "containerDefinitions": [
+    {
+      "type": "blank-container",
+      "id": "root",
+      "name": "root"
+    },
+    {
+      "specific": {
+        "repositoryUrl": "git@github.com:senecajs/salestax-api.git#v2",
+        "type": "docker",
+        "execute": {
+          "args": "-p 51000:51000",
+          "exec": "node /app.js"
+        },
+        "commit": "f7423c87efb343b0ca37edd64711328592d45f36"
+      },
+      "type": "docker",
+      "id": "web$f7423c87efb343b0ca37edd64711328592d45f36",
+      "name": "web"
+    }
+  ],
+  "topology": {
+    "containers": {
+      "root-6a536cd1": {
+        "id": "root-6a536cd1",
+        "containedBy": "root-6a536cd1",
+        "containerDefinitionId": "root",
+        "type": "blank-container",
+        "contains": [
+          "web-8216fa83$f7423c87efb343b0ca37edd64711328592d45f36"
+        ],
+        "specific": {}
+      },
+      "web-8216fa83$f7423c87efb343b0ca37edd64711328592d45f36": {
+        "id": "web-8216fa83$f7423c87efb343b0ca37edd64711328592d45f36",
+        "containedBy": "root-6a536cd1",
+        "containerDefinitionId": "web$f7423c87efb343b0ca37edd64711328592d45f36",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:senecajs/salestax-api.git#v2",
+          "type": "docker",
+          "execute": {
+            "args": "-p 51000:51000",
+            "exec": "node /app.js"
+          },
+          "commit": "f7423c87efb343b0ca37edd64711328592d45f36"
+        }
+      }
+    },
+    "name": "stage"
+  }
+}
