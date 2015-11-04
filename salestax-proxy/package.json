@@ -7,14 +7,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/senecajs/salestax-proxy.git"
+    "url": "https://github.com/senecajs/salestax-example.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/senecajs/salestax-proxy/issues"
+    "url": "https://github.com/senecajs/salestax-example/issues"
   },
-  "homepage": "https://github.com/senecajs/salestax-proxy",
+  "homepage": "https://github.com/senecajs/salestax-example",
   "dependencies": {
     "seneca": "^0.6.1"
   }

@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/senecajs/salestax-monitor.git"
+    "url": "https://github.com/senecajs/salestax-example.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/senecajs/salestax-monitor/issues"
+    "url": "https://github.com/senecajs/salestax-example/issues"
   },
-  "homepage": "https://github.com/senecajs/salestax-monitor",
+  "homepage": "https://github.com/senecajs/salestax-example",
   "dependencies": {
     "influx": "^3.4.0",
     "seneca": "^0.6.1"
