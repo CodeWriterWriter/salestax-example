@@ -5,8 +5,6 @@
 
 [![Gitter][gitter-badge]][gitter-url]
 
-salestax-example
-
 If you're using this module, and need help, you can:
 
 - Post a [github issue][],
