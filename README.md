@@ -3,6 +3,8 @@
 
 # salestax-example
 
+Lead Maintainer: [Blain Smith](https://github.com/blainsmith)
+
 [![Gitter][gitter-badge]][gitter-url]
 
 If you're using this module, and need help, you can:
